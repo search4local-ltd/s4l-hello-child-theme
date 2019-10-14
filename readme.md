@@ -1,16 +1,15 @@
-=== Hello Elementor Child ===
+=== S4L Hello Elementor Child ===
 
-Contributors: elemntor, KingYes, ariel.k, jzaltzberg, mati1000, bainternet
+Contributors: Search4Local Ltd
 Requires at least: WordPress 4.7
-Tested up to: WordPress 5.2
 Stable tag: 1.0.0
-Version: 1.0.1
+Version: 1.1
 Requires PHP: 5.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
 
-The Hello Elementor Child Theme is a starter blank child theme for [Hello Elementor](https://wordpress.org/themes/hello-elementor/) theme.
+The S4L Hello Elementor Child Theme is a starter blank child theme for [Hello Elementor](https://wordpress.org/themes/hello-elementor/) theme with added functionality built in for Search4Local websites.
 
 ***Hello Elementor*** is distributed under the terms of the GNU GPL v3 or later.
 
@@ -51,7 +50,7 @@ Yes, ***but*** best practice is to use the styling capabilities in the Elementor
 This theme, like WordPress, is licensed under the GPL.
 Use it as your springboard to building a site with ***Elementor***.
 
-Hello Elementor bundles the following third-party resources:
+S4L Hello Elementor bundles the following third-party resources:
 
 Font Awesome icons for theme screenshot
 License: SIL Open Font License, version 1.1.
@@ -63,5 +62,5 @@ Source: https://stocksnap.io/photo/4B83RD7BV9
 
 == Changelog ==
 
-= 1.0.0 - 2019-05-23 =
-* Initial Public Release
+= 1.1 - 2019-10-14 =
+* Initial Git Release
