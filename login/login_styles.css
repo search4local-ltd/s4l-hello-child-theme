@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+body.login {
+		 background-color: #0066fe;
+		background: linear-gradient(45deg, #0066fe 0%, #004bbd 50%, #00337a 100%);
+		 display: -ms-flexbox;
+		 display: -webkit-flex;
+		 display: flex;
+		 -ms-flex-align: center;
+		 -webkit-align-items: center;
+		 -webkit-box-align: center;
+		 align-items: center;
+		 font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+		 font-size: 1em;
+		 font-weight: 400;
+		 flex-direction: column;
+		 justify-content: center;
+
+}
+
+body.login #login {
+	padding: 40px;
+	margin: 0;
+}
+
+body.login h1 {
+	display: none !important;
+}
+
+.login p#backtoblog {
+	text-align: center;
+}
+
+.login p#backtoblog a {
+	color: #FFFFFF;
+	font-weight: 300;
+	font-size: 1em;
+}
+
+body.login p#nav a {
+	color: #FFFFFF;
+	font-weight: 300;
+}
+
+.login.login-action-lostpassword p#nav {
+	text-align: center;
+	font-size: 1em;
+}
+
+.login.login-action-login p#nav {
+	text-align: center;
+}
+
+.login.login-action-lostpassword p#nav a,
+.login.login-action-login p#nav a {
+	font-size: 1em;
+}
+
+body.login #nav a:hover,
+body.login #backtoblog a:hover {
+	color: #23b5d3;
+}
+
+body.wp-core-ui .button-primary {
+	background: #0066fe;
+	border-color: #0066fe;
+	color: #fff;
+	border-radius: 999px;
+	font-weight: 700;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	transition: 0.2s;
+}
+
+body.wp-core-ui .button-primary:hover,
+body.wp-core-ui .button-primary:focus {
+	background: #0050c7;
+	border-color: #0050c7 !important;
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(0,0,0,0.13) !important;
+}
+
+.login form input[type="checkbox"],
+.login form input[type="password"],
+.login form input[type="text"] {
+	font-size: 1em;
+}
+
+body input[type="checkbox"]:checked:before {
+	color: #23b5d3;
+}
+
+body input[type="checkbox"]:focus,
+body input[type="password"]:focus,
+body input[type="text"]:focus {
+	outline: 1px solid #23b5d3 !important;
+	box-shadow: none !important;
+}
+
+.login p.message {
+	border: none;
+	background: #23b5d3;
+	text-align: center;
+	color: white;
+}
+
+.login div#login_error {
+	background: #ba1200;
+	color: #FFFFFF;
+	border: none;
+	text-align: center;
+}
+
+body.login-action-lostpassword div#login_error {
+	margin-top: 20px;
+}
+
+#user_login,
+#user_pass {
+	background-color: #E4E4E4;
+	border: none;
+	border-radius: 0;
+}
+	
+
+#s4l-login-logo {
+	position: fixed;
+	left: 32px;
+	bottom: 32px;
+	z-index: 1000;
+	width: 184px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.s4l-powered-by {
+	color: #fff !important;
+	font-size: 1.1em;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	text-align: center;
+	margin-bottom: 8px;
+	letter-spacing: 0.08em;
+	opacity: 1;
+	width: 100%;
+	display: block;
+}
+
+
+.login label {
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+
+}
+
+.login form {
+	border: none !important;
+	padding: 30px;
+}
+
+body.login h2#login-title {
+	color: #fff !important;
+	text-align: center !important;
+}
+
+body.login div#loginheader {
+	display: flex !important;
+	justify-content: center !important;
+	flex-direction: column !important;
+	align-items: center !important;
+}
+
+#s4l-login-logo {
+	position: fixed;
+	left: 32px;
+	bottom: 32px;
+	z-index: 1000;
+	width: 184px;
+	height: 61px;
+	display: flex;
+	align-items: flex-end;
+}
+
+#s4l-login-logo img {
+	width: 184px;
+	height: 61px;
+	display: block;
+}
+
+@media only screen and (max-width:767px) {
+       body.login {
+	       background: #0066fe;
+       }
+       #s4l-login-logo {
+	       left: 50%;
+	       right: auto;
+	       transform: translateX(-50%);
+	       margin-left: 0;
+	       margin-right: 0;
+	       width: 90vw;
+	       min-width: 0;
+	       align-items: center;
+       }
+       .s4l-powered-by {
+	       text-align: center;
+	       width: 100%;
+	       margin-left: 0;
+	       margin-right: 0;
+       }
+}
