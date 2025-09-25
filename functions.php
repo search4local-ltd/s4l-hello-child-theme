@@ -1,4 +1,10 @@
 <?php
+function s4l_set_default_options_on_activation() {
+	if (get_option('s4l_auto_alt_tag', null) === null) {
+		update_option('s4l_auto_alt_tag', 1);
+	}
+}
+add_action('after_switch_theme', 's4l_set_default_options_on_activation');
 function s4l_child_theme_options_menu() {
 	add_options_page(
 		'S4L Child Theme Options',
@@ -103,9 +109,9 @@ function custom_login_message() {
 	       <div class="s4l-login-logo-bg">
        <?php endif; ?>
        <?php if ( $logo_url ) : ?>
-	       <img src="<?php echo esc_url( $logo_url ); ?>" width="184" height="61" alt="<?php echo esc_attr( get_bloginfo('name') ); ?> logo" style="display:block;margin:0 auto 16px;" />
+	       <img src="<?php echo esc_url( $logo_url ); ?>" width="184" alt="<?php echo esc_attr( get_bloginfo('name') ); ?> logo" style="display:block;margin:0 auto 16px; height:auto;" />
        <?php else : ?>
-	       <img src="/wp-content/themes/s4l-hello-child-theme/login/s4l-logo.svg" width="184" height="61" alt="S4L logo" style="display:block;margin:0 auto 16px;" />
+	       <img src="/wp-content/themes/s4l-hello-child-theme/login/s4l-logo.svg" width="184" alt="S4L logo" style="display:block;margin:0 auto 16px; height:auto;" />
        <?php endif; ?>
        <?php if ($show_bg): ?>
 	       </div>

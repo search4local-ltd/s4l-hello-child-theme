@@ -1,3 +1,16 @@
+#language-switcher label {
+	color: #fff;
+}
+
+.privacy-policy-link {
+	color: #00eaff !important;
+	text-decoration: underline;
+	font-weight: 500;
+	transition: color 0.2s;
+}
+.privacy-policy-link:hover, .privacy-policy-link:focus {
+	color: #00b3c6 !important;
+}
 .s4l-login-logo-bg {
 	background: #fff;
 	padding: 18px;
