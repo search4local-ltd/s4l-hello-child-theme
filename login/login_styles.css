@@ -1,3 +1,13 @@
+.s4l-login-logo-bg {
+	background: #fff;
+	padding: 18px;
+	border-radius: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 body.login {
 		 background-color: #0066fe;

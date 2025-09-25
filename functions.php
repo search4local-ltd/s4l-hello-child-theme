@@ -1,4 +1,59 @@
 <?php
+function s4l_child_theme_options_menu() {
+	add_options_page(
+		'S4L Child Theme Options',
+		'S4L Theme Options',
+		'manage_options',
+		's4l-child-theme-options',
+		's4l_child_theme_options_page'
+	);
+}
+add_action('admin_menu', 's4l_child_theme_options_menu');
+
+function s4l_child_theme_options_page() {
+	?>
+	<div class="wrap">
+		<h1>S4L Child Theme Options</h1>
+		<form method="post" action="options.php">
+			<?php
+			settings_fields('s4l_child_theme_options_group');
+			do_settings_sections('s4l-child-theme-options');
+			submit_button();
+			?>
+		</form>
+	</div>
+	<?php
+}
+
+function s4l_child_theme_register_settings() {
+	register_setting('s4l_child_theme_options_group', 's4l_login_logo_bg');
+	register_setting('s4l_child_theme_options_group', 's4l_auto_alt_tag');
+	add_settings_section('s4l_child_theme_main_section', '', null, 's4l-child-theme-options');
+	add_settings_field(
+		's4l_login_logo_bg',
+		'Login Background',
+		's4l_child_theme_login_bg_field',
+		's4l-child-theme-options',
+		's4l_child_theme_main_section'
+	);
+	add_settings_field(
+		's4l_auto_alt_tag',
+		'Auto Alt Tag on Image Upload',
+		's4l_child_theme_auto_alt_tag_field',
+		's4l-child-theme-options',
+		's4l_child_theme_main_section'
+	);
+function s4l_child_theme_auto_alt_tag_field() {
+	$value = get_option('s4l_auto_alt_tag', false);
+	echo '<input type="checkbox" name="s4l_auto_alt_tag" value="1" ' . checked(1, $value, false) . ' /> Enable automatic alt tagging on image upload';
+}
+}
+add_action('admin_init', 's4l_child_theme_register_settings');
+
+function s4l_child_theme_login_bg_field() {
+	$value = get_option('s4l_login_logo_bg', false);
+	echo '<input type="checkbox" name="s4l_login_logo_bg" value="1" ' . checked(1, $value, false) . ' /> Enable white background behind login logo';
+}
 /**
  * Theme functions and definitions.
  *
@@ -43,12 +98,19 @@ function custom_login_message() {
        $logo_url = $logo_id ? wp_get_attachment_image_url( $logo_id , 'full' ) : false;
        ?>
        <div id="loginheader">
-	       <?php if ( $logo_url ) : ?>
-		       <img src="<?php echo esc_url( $logo_url ); ?>" width="184" height="61" alt="<?php echo esc_attr( get_bloginfo('name') ); ?> logo" style="display:block;margin:0 auto 16px;" />
-	       <?php else : ?>
-		       <img src="/wp-content/themes/s4l-hello-child-theme/login/s4l-logo.svg" width="184" height="61" alt="S4L logo" style="display:block;margin:0 auto 16px;" />
-	       <?php endif; ?>
-	       <h2 id="login-title"><?php echo get_bloginfo( 'name' ); ?></h2>
+       <?php $show_bg = get_option('s4l_login_logo_bg', false); ?>
+       <?php if ($show_bg): ?>
+	       <div class="s4l-login-logo-bg">
+       <?php endif; ?>
+       <?php if ( $logo_url ) : ?>
+	       <img src="<?php echo esc_url( $logo_url ); ?>" width="184" height="61" alt="<?php echo esc_attr( get_bloginfo('name') ); ?> logo" style="display:block;margin:0 auto 16px;" />
+       <?php else : ?>
+	       <img src="/wp-content/themes/s4l-hello-child-theme/login/s4l-logo.svg" width="184" height="61" alt="S4L logo" style="display:block;margin:0 auto 16px;" />
+       <?php endif; ?>
+       <?php if ($show_bg): ?>
+	       </div>
+       <?php endif; ?>
+       <h2 id="login-title"><?php echo get_bloginfo( 'name' ); ?></h2>
        </div>
        <div id="s4l-login-logo">
 	       <div class="s4l-powered-by">powered by</div>
@@ -69,7 +131,12 @@ add_action('login_enqueue_scripts', 'loginCSS');
 
 /* Automatically set the image Title, Alt-Text, Caption & Description upon upload */
 
-add_action( 'add_attachment', 'my_set_image_meta_upon_image_upload' );
+function s4l_maybe_enable_auto_alt_tag() {
+	if (get_option('s4l_auto_alt_tag', false)) {
+		add_action( 'add_attachment', 'my_set_image_meta_upon_image_upload' );
+	}
+}
+add_action('init', 's4l_maybe_enable_auto_alt_tag');
 
 function my_set_image_meta_upon_image_upload( $post_ID ) {
 	// Check if uploaded file is an image, else do nothing
