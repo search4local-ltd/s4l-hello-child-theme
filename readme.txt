@@ -24,21 +24,6 @@ The theme supports common WordPress features which can be extended using a child
 3. Click on the 'Activate' button to use your new theme right away.
 4. Navigate to Elementor and start building your site.
 
-== Copyright ==
-
-This theme, like WordPress, is distributed under the terms of GPL.
-Use it as your springboard to building a site with ***Elementor***.
-
-Hello Elementor bundles the following third-party resources:
-
-Font Awesome icons for theme screenshot
-License: SIL Open Font License, version 1.1.
-Source: https://fontawesome.com/v4.7.0/
-
-Image for theme screenshot, Copyright Jason Blackeye
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://stocksnap.io/photo/4B83RD7BV9
-
 == Changelog ==
 
 = 2.0.0 - 2023-04-27 =
